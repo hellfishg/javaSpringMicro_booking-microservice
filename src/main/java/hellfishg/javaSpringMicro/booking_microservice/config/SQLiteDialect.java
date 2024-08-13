@@ -81,7 +81,7 @@ import static org.hibernate.type.descriptor.DateTimeUtils.appendAsDate;
 import static org.hibernate.type.descriptor.DateTimeUtils.appendAsTime;
 import static org.hibernate.type.descriptor.DateTimeUtils.appendAsTimestampWithMillis;
 import static org.hibernate.type.descriptor.DateTimeUtils.appendAsTimestampWithNanos;
-import static org.hibernate.type.descriptor.DateTimeUtils.appendAsTimestampWithMillis;
+//import static org.hibernate.type.descriptor.DateTimeUtils.appendAsTimestampWithMillis;
 
 /**
  * An SQL dialect for SQLite.
@@ -92,6 +92,7 @@ public class SQLiteDialect extends Dialect {
 
     private final UniqueDelegate uniqueDelegate;
 
+    @SuppressWarnings("deprecation")
     public SQLiteDialect(DialectResolutionInfo info) {
         this( info.makeCopy() );
         registerKeywords( info );
@@ -217,6 +218,7 @@ public class SQLiteDialect extends Dialect {
         }
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public String timestampdiffPattern(TemporalUnit unit, TemporalType fromTemporalType, TemporalType toTemporalType) {
         final StringBuilder pattern = new StringBuilder();
@@ -695,6 +697,7 @@ public class SQLiteDialect extends Dialect {
         }
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void appendDateTimeLiteral(SqlAppender appender, Date date, TemporalType precision, TimeZone jdbcTimeZone) {
         switch ( precision ) {
@@ -718,6 +721,7 @@ public class SQLiteDialect extends Dialect {
         }
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public void appendDateTimeLiteral(
             SqlAppender appender,
